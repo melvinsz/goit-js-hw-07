@@ -23,7 +23,6 @@ import { galleryItems } from "./gallery-items.js";
 const palletteContainer = document.querySelector(".gallery");
 const cardPictures = createPicturesCards(galleryItems);
 palletteContainer.insertAdjacentHTML("beforeend", cardPictures);
-palletteContainer.addEventListener("click", onPictureClick);
 
 function createPicturesCards(galleryItems) {
   return galleryItems
@@ -34,14 +33,7 @@ function createPicturesCards(galleryItems) {
     })
     .join("");
 }
-
-function onPictureClick(event) {
-  event.preventDefault();
-  if (!event.target.classList.contains("gallery__image")) {
-    return;
-  }
-  var lightbox = new SimpleLightbox(".gallery a", {
-    captionsData: "alt",
-    captionsDelay: "250",
-  });
-}
+var lightbox = new SimpleLightbox(".gallery a", {
+  captionsData: "alt",
+  captionsDelay: "250",
+});
